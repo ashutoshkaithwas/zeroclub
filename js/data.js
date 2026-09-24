@@ -90,7 +90,7 @@ const ZC_DATA = {
       id: "retinal-ai",
       n: "03",
       name: "Retinal AI",
-      image: "assets\proj_images\retiscan.png",
+      image: "assets/proj_images/retiscan.png",
       category: "AI / Medical Imaging / Computer Vision (Academic / Technical)",
       summary: "An AI-assisted retinal image analysis system that enhances fundus images and assists with glaucoma classification. Built as a technical research project — not a diagnostic service.",
       tech: ["Python", "Real-ESRGAN", "PyTorch", "OpenCV", "Machine Learning", "Computer Vision"],
