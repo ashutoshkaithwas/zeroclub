@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Security: all scripts are now self-hosted (js/vendor), so script-src is 'self' only.
+     style-src needs 'unsafe-inline' because GSAP animates via inline style properties.
+     Full header-level hardening (X-Frame-Options, frame-ancestors, HSTS) belongs at the
+     host/CDN level — see _headers and README.md, since <meta> can't set those. -->
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://formspree.io; object-src 'none'; base-uri 'self'; form-action 'self' https://formspree.io;">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <title>ZeroClub</title>
+  <meta name="description"
+    content="Freelance web developer building custom websites, web applications and AI-powered digital experiences for businesses, creators and startups. Based in Pune, India — available worldwide.">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="ZeroClub — Ashutosh Kaithwas, Freelance Web Developer">
+  <meta property="og:description"
+    content="Custom websites, web applications and AI-powered digital products. One developer, from idea to live product.">
+  <meta property="og:url" content="https://zeroclub.tech">
+  <meta property="og:site_name" content="ZeroClub">
+  <meta property="og:image" content="https://zeroclub.tech/assets/og-image.jpg">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ZeroClub — Ashutosh Kaithwas, Freelance Web Developer">
+  <meta name="twitter:description"
+    content="Custom websites, web applications and AI-powered digital products. One developer, from idea to live product.">
+
+  <link rel="canonical" href="https://zeroclub.tech">
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22%230B0D10%22/><text x=%2250%22 y=%2266%22 font-size=%2260%22 fill=%22%23FF4B22%22 text-anchor=%22middle%22 font-family=%22monospace%22>0</text></svg>">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/theme.js"></script>
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "ZeroClub",
+  "founder": { "@type": "Person", "name": "Ashutosh Kaithwas", "jobTitle": "Freelance Web Developer" },
+  "url": "https://zeroclub.tech",
+  "areaServed": "Worldwide",
+  "description": "Freelance web development studio building custom websites, web applications and AI-powered digital products."
+}
+</script>
+</head>
+
+<body>
+
+  <!-- ============ SITE PRELOADER (BOUNCING & EXPLODING SIGNAL BALL) ============ -->
+  <div class="site-loader" id="siteLoader" role="status" aria-label="Loading ZeroClub">
+    <div class="loader-content">
+      <div class="loader-stage">
+        <div class="loader-ball" id="loaderBall"></div>
+        <div class="loader-shadow" id="loaderShadow"></div>
+      </div>
+      <div class="loader-meta">
+        <p class="loader-logo">ZEROCLUB<span class="loader-dot">.</span></p>
+        <div class="loader-progress-track">
+          <div class="loader-progress-bar" id="loaderProgressBar"></div>
+        </div>
+      </div>
+    </div>
+    <div class="loader-shockwave" id="loaderShockwave"></div>
+  </div>
+
+  <!-- Skip link for keyboard/screen-reader users -->
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Custom cursor (desktop only, JS-controlled) -->
+  <div class="cursor" id="cursor" aria-hidden="true">
+    <span class="cursor-dot"></span>
+    <span class="cursor-label"></span>
+  </div>
+
+  <!-- ============ NAVIGATION ============ -->
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#top" class="nav-logo">ZEROCLUB<span class="nav-logo-dot">.</span></a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#about" data-cursor-hover>About</a>
+        <a href="#work" data-cursor-hover>Work</a>
+        <a href="#services" data-cursor-hover>Services</a>
+        <a href="#process" data-cursor-hover>Process</a>
+        <a href="#contact" data-cursor-hover>Contact</a>
+      </nav>
+      <div class="nav-right">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" title="Toggle theme" data-cursor-hover>
+          <span class="theme-toggle-icon icon-sun" aria-hidden="true">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+          </span>
+          <span class="theme-toggle-icon icon-moon" aria-hidden="true">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </span>
+        </button>
+        <a href="#contact" class="nav-cta" data-cursor-hover>Start a project <span class="arrow">↗</span></a>
+        <button class="nav-menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+          <span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <nav aria-label="Mobile">
+      <a href="#about">About</a>
+      <a href="#work">Work</a>
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="mobile-menu-actions">
+      <button class="mobile-theme-btn" id="mobileThemeToggle" aria-label="Toggle theme">
+        <span class="mobile-theme-icon" aria-hidden="true">☀️</span>
+        <span class="mobile-theme-label">Switch Theme</span>
+      </button>
+      <a href="#contact" class="mobile-cta">Start a project ↗</a>
+    </div>
+  </div>
+
+  <main id="main">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="top">
+      <div class="hero-bg" id="heroBg" aria-hidden="true"></div>
+      <div class="hero-inner">
+        <div class="hero-status-floating reveal-up">
+          <span class="dot-live"></span>
+          <span class="status-text">Available for Projects — Pune, India / Remote</span>
+        </div>
+        <h1 class="hero-headline">
+          <span class="reveal-line"><span>I build digital</span></span>
+          <span class="reveal-line"><span>experiences that</span></span>
+          <span class="reveal-line"><span>people <em>remember</em>.</span></span>
+        </h1>
+        <p class="hero-sub">
+          Freelance developer designing and building custom websites, web apps,
+          and AI-powered digital products that make a lasting impression.
+        </p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-solid btn-hero-primary" data-cursor-hover>
+            Start a project <span class="arrow">↗</span>
+          </a>
+          <a href="#work" class="btn btn-ghost" data-cursor-hover>View my work</a>
+        </div>
+        <div class="hero-badges reveal-up">
+          <div class="hero-badge">
+            <span class="badge-bullet" aria-hidden="true"></span>
+            <span>100% Bespoke Code</span>
+          </div>
+          <div class="hero-badge">
+            <span class="badge-bullet" aria-hidden="true"></span>
+            <span>Zero Templates</span>
+          </div>
+          <div class="hero-badge">
+            <span class="badge-bullet" aria-hidden="true"></span>
+            <span>Idea → Live Product</span>
+          </div>
+          <div class="hero-badge">
+            <span class="badge-bullet" aria-hidden="true"></span>
+            <span>Performance-First</span>
+          </div>
+        </div>
+      </div>
+      <canvas class="hero-grid-canvas" id="heroGridCanvas" aria-hidden="true"></canvas>
+      <div class="hero-scroll">
+        <span>Scroll</span>
+        <span class="hero-scroll-line"></span>
+      </div>
+    </section>
+
+    <!-- ============ MARQUEE STRIP ============ -->
+    <div class="strip" aria-hidden="true">
+      <div class="strip-track">
+        <div class="strip-group">
+          <span>UI / UX</span><span>·</span><span>WEBSITES</span><span>·</span><span>WEB APPLICATION</span><span>·</span><span>AI PRODUCTS</span><span>·</span>
+        </div>
+        <div class="strip-group">
+          <span>UI / UX</span><span>·</span><span>WEBSITES</span><span>·</span><span>WEB APPLICATION</span><span>·</span><span>AI PRODUCTS</span><span>·</span>
+        </div>
+        <div class="strip-group">
+          <span>UI / UX</span><span>·</span><span>WEBSITES</span><span>·</span><span>WEB APPLICATION</span><span>·</span><span>AI PRODUCTS</span><span>·</span>
+        </div>
+        <div class="strip-group">
+          <span>UI / UX</span><span>·</span><span>WEBSITES</span><span>·</span><span>WEB APPLICATION</span><span>·</span><span>AI PRODUCTS</span><span>·</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="section about" id="about">
+      <div class="container">
+        <p class="label reveal-up">01 — About</p>
+        <h2 class="statement reveal-up">I don't just build websites. I build the digital side of your idea.</h2>
+        <div class="about-grid">
+          <div class="about-copy reveal-up">
+            <p>I'm Ashutosh Kaithwas — a developer working across design and development, taking ideas from a first
+              sketch to a live, working product. Websites, web apps, AI-powered tools — built around what you actually
+              need.</p>
+            <p class="about-signoff">One developer. Design, development and deployment.</p>
+          </div>
+          <div class="about-facts reveal-up">
+            <div class="fact"><span class="fact-label">Based in</span><span class="fact-value">Pune, India</span></div>
+            <div class="fact"><span class="fact-label">Working</span><span class="fact-value">Worldwide, remote</span>
+            </div>
+            <div class="fact"><span class="fact-label">Focus</span><span class="fact-value">Web, apps, AI</span></div>
+            <div class="fact"><span class="fact-label">Approach</span><span class="fact-value">Idea → live
+                product</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SERVICES ============ -->
+    <section class="section services" id="services">
+      <div class="container">
+        <p class="label reveal-up">02 — Services</p>
+        <h2 class="statement reveal-up">What can I build for you?</h2>
+        <div class="service-list" id="serviceList"><!-- injected by JS from ZC_DATA.services --></div>
+      </div>
+    </section>
+
+    <!-- ============ VALUE ============ -->
+    <section class="section value">
+      <div class="container">
+        <p class="label reveal-up">03 — Built around your idea</p>
+        <div class="value-grid">
+          <div class="value-item reveal-up">
+            <h3>Not templates.</h3>
+            <p>Your website shouldn't look like everyone else's. I build around your brand, audience and goals.</p>
+          </div>
+          <div class="value-item reveal-up">
+            <h3>Designed before it's developed.</h3>
+            <p>Structure, visual hierarchy and user experience come first. Code comes after the idea makes sense.</p>
+          </div>
+          <div class="value-item reveal-up">
+            <h3>Built to work.</h3>
+            <p>Responsive layouts, clean interactions, functional systems — performance matters as much as aesthetics.
+            </p>
+          </div>
+          <div class="value-item reveal-up">
+            <h3>One person. One vision.</h3>
+            <p>Instead of passing your idea between multiple people, I take it from concept to design to development and
+              launch.</p>
+          </div>
+        </div>
+        <ul class="value-tags reveal-up" aria-label="Also included with every project">
+          <li>Custom design</li>
+          <li>Responsive on every device</li>
+          <li>Modern interactions</li>
+          <li>Real, working code</li>
+          <li>Performance</li>
+          <li>Deployment</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ SELECTED WORK ============ -->
+    <section class="section work" id="work">
+      <div class="container">
+        <p class="label reveal-up">04 — Selected work</p>
+        <div class="work-head reveal-up">
+          <h2 class="statement">Featured work.</h2>
+          <button class="work-toggle" id="workToggle" aria-expanded="false" aria-controls="workCollapse"
+            data-cursor-hover>
+            <span class="work-toggle-label">Show projects</span>
+            <span class="work-toggle-icon" aria-hidden="true">↓</span>
+          </button>
+        </div>
+      </div>
+      <div class="work-collapse" id="workCollapse">
+        <div class="project-list" id="projectList"><!-- injected by JS from ZC_DATA.projects --></div>
+      </div>
+    </section>
+
+    <!-- ============ TECHNOLOGY ============ -->
+    <section class="section tech" id="toolkit">
+      <div class="container">
+        <p class="label reveal-up">05 — Toolkit</p>
+        <h2 class="statement reveal-up">The technology behind the work.</h2>
+      </div>
+      <div class="tech-marquee" aria-hidden="true">
+        <div class="tech-marquee-track" id="techMarquee"></div>
+      </div>
+      <div class="container">
+        <div class="tech-groups" id="techGroups"><!-- injected by JS: accordion rows, same pattern as Services --></div>
+      </div>
+    </section>
+
+    <!-- ============ FREELANCE CTA ============ -->
+    <section class="section cta-mid">
+      <div class="container">
+        <h2 class="cta-mid-headline reveal-up">Have something in mind?</h2>
+        <p class="reveal-up">Tell me what you're trying to build. Whether it's a website, a digital product, a web
+          application, or something that doesn't quite have a name yet — let's figure it out.</p>
+        <div class="hero-actions reveal-up">
+          <a href="#contact" class="btn btn-solid" data-cursor-hover>Start a project ↗</a>
+          <a href="#work" class="btn btn-ghost" data-cursor-hover>View my work ↑</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROCESS ============ -->
+    <section class="section process" id="process">
+      <div class="container">
+        <p class="label reveal-up">06 — Process</p>
+        <h2 class="statement reveal-up">From idea to live website.</h2>
+        <div class="process-list" id="processList"><!-- injected by JS --></div>
+      </div>
+    </section>
+
+    <!-- ============ IDEAL CLIENT ============ -->
+    <section class="section ideal">
+      <div class="container ideal-grid">
+        <div class="ideal-col reveal-up">
+          <h3 class="ideal-heading">ZeroClub is for you if…</h3>
+          <ul>
+            <li>Your website feels outdated, or you're launching something new.</li>
+            <li>You have an idea for a web app but no clear starting point.</li>
+            <li>You want something that doesn't look like a template.</li>
+            <li>You want one person who can handle design and development.</li>
+          </ul>
+        </div>
+        <div class="ideal-col reveal-up">
+          <h3 class="ideal-heading ideal-heading-muted">Probably not for you if…</h3>
+          <ul class="ideal-muted">
+            <li>You just want the cheapest possible template.</li>
+            <li>You want a copy of someone else's website.</li>
+            <li>You'd rather not explain your idea at all.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="section faq" id="faq">
+      <div class="container">
+        <p class="label reveal-up">07 — FAQ</p>
+        <h2 class="statement reveal-up">Good questions.</h2>
+        <div class="faq-list" id="faqList"><!-- injected by JS --></div>
+        <a href="#contact" class="btn btn-ghost faq-cta reveal-up" data-cursor-hover>Get a quote →</a>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="section contact" id="contact">
+      <div class="container">
+        <p class="label reveal-up">08 — Contact</p>
+        <h2 class="contact-headline reveal-up">Let's build something.</h2>
+        <p class="contact-sub reveal-up">Have a project, a business idea, a redesign, or a completely crazy concept?
+          Tell me about it.</p>
+
+        <div class="contact-grid">
+          <form class="contact-form reveal-up" id="contactForm" novalidate>
+            <div class="field">
+              <label for="f-name">Name</label>
+              <input type="text" id="f-name" name="name" placeholder="Your name" required autocomplete="name"
+                maxlength="100">
+            </div>
+            <div class="field">
+              <label for="f-email">Email</label>
+              <input type="email" id="f-email" name="email" placeholder="you@example.com" required autocomplete="email"
+                maxlength="254">
+            </div>
+            <div class="field">
+              <label for="f-company">Company / Brand <span class="opt">(optional)</span></label>
+              <input type="text" id="f-company" name="company" placeholder="Your company or brand"
+                autocomplete="organization" maxlength="120">
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label for="f-need">What do you need?</label>
+                <select id="f-need" name="need" required>
+                  <option value="" disabled selected>Select one</option>
+                  <option>New website</option>
+                  <option>Website redesign</option>
+                  <option>Web application</option>
+                  <option>Landing page</option>
+                  <option>AI / Computer Vision project</option>
+                  <option>E-commerce</option>
+                  <option>Portfolio</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="f-budget">Budget <span class="opt">(optional)</span></label>
+                <select id="f-budget" name="budget">
+                  <option value="" selected>Not sure yet</option>
+                  <option>Under ₹10,000</option>
+                  <option>₹10,000 – ₹25,000</option>
+                  <option>₹25,000 – ₹50,000</option>
+                  <option>₹50,000 – ₹1,00,000</option>
+                  <option>₹1,00,000+</option>
+                </select>
+              </div>
+            </div>
+            <div class="field">
+              <label for="f-message">Tell me about your project</label>
+              <textarea id="f-message" name="message" rows="5"
+                placeholder="Tell me what you're building, what you need, and what success looks like." required
+                maxlength="4000"></textarea>
+            </div>
+            <!-- honeypot spam field, hidden from real users -->
+            <div class="field field-hp" aria-hidden="true">
+              <label for="f-hp">Leave this empty</label>
+              <input type="text" id="f-hp" name="_gotcha" tabindex="-1" autocomplete="off">
+            </div>
+            <button type="submit" class="btn btn-solid btn-submit" id="submitBtn" data-cursor-hover>
+              <span class="btn-label">Send project inquiry ↗</span>
+            </button>
+            <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+          </form>
+
+          <div class="contact-direct reveal-up">
+            <p class="contact-direct-lead">Prefer to skip the form?</p>
+            <a href="mailto:hello@zeroclub.tech" class="contact-link" data-cursor-hover>
+              <span class="contact-link-label">Email</span>
+              <span class="contact-link-value">hello@zeroclub.tech</span>
+            </a>
+            <a href="https://linkedin.com/in/ashutosh-kaithwas" class="contact-link" target="_blank"
+              rel="noopener noreferrer" data-cursor-hover>
+              <span class="contact-link-label">LinkedIn</span>
+              <span class="contact-link-value">/in/ashutoshkaithwas</span>
+            </a>
+            <a href="https://github.com/ashutoshkaithwas" class="contact-link" target="_blank" rel="noopener noreferrer"
+              data-cursor-hover>
+              <span class="contact-link-label">GitHub</span>
+              <span class="contact-link-value">@ashutoshkaithwas</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FINAL CTA ============ -->
+    <section class="section final-cta">
+      <div class="container">
+        <h2 class="final-cta-headline reveal-up">You have the idea.<br>I'll build the digital part.</h2>
+        <a href="#contact" class="btn btn-solid btn-large reveal-up" data-cursor-hover>Start a project ↗</a>
+        <p class="final-cta-domain reveal-up">zeroclub.tech</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER + GAME ============ -->
+  <footer class="footer" id="siteFooter">
+
+    <!-- Static footer info — always visible -->
+    <div class="footer-static">
+      <div class="container footer-inner">
+        <div class="footer-brand">
+          <p class="footer-logo">ZEROCLUB</p>
+          <p class="footer-tag">Digital experiences, custom-built.</p>
+        </div>
+        <nav class="footer-links" aria-label="Footer">
+          <a href="#about">About</a>
+          <a href="#work">Work</a>
+          <a href="#services">Services</a>
+          <a href="#contact">Contact</a>
+          <a href="https://github.com/Ashutosh-rar" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://linkedin.com/in/ashutosh-kaithwas" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Game zone — separates the footer from the interactive world below -->
+    <div class="game-zone" id="gameZone">
+      <div class="game-zone-divider">
+        <span class="game-zone-label">Stay a little longer.</span>
+        <button class="game-enter-btn" id="gameEnterBtn" aria-label="Enter the interactive world">
+          <span class="game-enter-icon">▶</span>
+          <span>FEED THE FROG</span>
+        </button>
+      </div>
+
+      <!-- Canvas is the game world -->
+      <div class="game-canvas-wrap" id="gameCanvasWrap" aria-hidden="true">
+        <canvas id="gameCanvas"></canvas>
+
+        <!-- Layered UI over the canvas — pure DOM, GSAP-animated -->
+        <div class="game-ui" id="gameUI">
+          <div style="display:flex;gap:1.4rem;align-items:center;">
+            <div class="game-score">
+              <span class="game-score-label">LEVEL</span>
+              <span class="game-score-value" id="gameLevelVal">1</span>
+            </div>
+            <div class="game-score" id="gameScore" aria-live="polite" aria-label="Score">
+              <span class="game-score-label">FIREFLIES</span>
+              <span class="game-score-value" id="gameScoreVal">0</span>
+            </div>
+            <div class="game-score game-progress-wrap" title="Level progress">
+              <span class="game-score-label">DISTANCE</span>
+              <div class="game-progress-track">
+                <div class="game-progress-fill" id="gameProgressFill"></div>
+              </div>
+            </div>
+          </div>
+          <button class="game-close-btn" id="gameCloseBtn" aria-label="Exit game">× EXIT</button>
+        </div>
+
+        <!-- Instruction overlay (shows briefly after game starts) -->
+        <div class="game-instructions" id="gameInstructions">
+          <span class="game-instr-key">←→ / WASD</span><span>move</span>
+          <span class="game-instr-key">SPACE / ↑</span><span>jump</span>
+          <span class="game-instr-sep">·</span>
+          <span class="game-instr-mobile">Tap left/right — swipe up to jump</span>
+        </div>
+
+        <!-- Completion screen -->
+        <div class="game-complete" id="gameComplete" aria-hidden="true">
+          <p class="game-complete-found">YOU FOUND IT.</p>
+          <h2 class="game-complete-title">Thanks for playing.</h2>
+          <p class="game-complete-sub">Now let's build something together.</p>
+          <div class="game-complete-actions">
+            <a href="#contact" class="btn btn-solid" id="gameCompleteContact">Start a project</a>
+            <button class="btn btn-ghost" id="gameCompleteBack">↺ Play again</button>
+          </div>
+        </div>
+
+        <!-- Mobile virtual controls -->
+        <div class="game-mobile-controls" id="gameMobileControls" aria-hidden="true">
+          <button class="game-vbtn" id="vBtnLeft" aria-label="Move left">←</button>
+          <button class="game-vbtn game-vbtn-jump" id="vBtnJump" aria-label="Jump">↑</button>
+          <button class="game-vbtn" id="vBtnRight" aria-label="Move right">→</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="footer-bottom-bar">
+      <div class="container footer-bottom">
+        <p>© 2026 ZEROCLUB — Designed &amp; developed by Ashutosh</p>
+        <div class="footer-bottom-right">
+          <p class="footer-built">Built from zero.</p>
+          <a href="#top" class="back-to-home" id="backToHomeBtn" data-cursor-hover aria-label="Back to home page">
+            <span>Back to top</span>
+            <span class="back-arrow" aria-hidden="true">↑</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- ============ PROJECT CASE-STUDY OVERLAY ============ -->
+  <div class="overlay" id="projectOverlay" aria-hidden="true" role="dialog" aria-modal="true"
+    aria-labelledby="overlayTitle">
+    <div class="overlay-inner" id="overlayContent"><!-- injected by JS --></div>
+    <button class="overlay-close" id="overlayClose" aria-label="Close project">
+      <span></span><span></span>
+    </button>
+  </div>
+
+  <script src="js/vendor/gsap.min.js"></script>
+  <script src="js/vendor/ScrollTrigger.min.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/game.js"></script>
+</body>
+
+</html>
