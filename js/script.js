@@ -734,7 +734,7 @@
      form always produces a real message either way.
      --------------------------------------------------------- */
   const ContactModule = (() => {
-    const FORM_ENDPOINT = ''; // e.g. 'https://formspree.io/f/xxxxxxx' — see README.md
+    const FORM_ENDPOINT = 'https://formspree.io/f/xyezppyn';
 
     function init() {
       const form = document.getElementById('contactForm');
