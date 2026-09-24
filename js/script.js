@@ -775,12 +775,12 @@
             const body = encodeURIComponent(
               `Name: ${data.name}\nEmail: ${data.email}\nCompany: ${data.company || '-'}\nNeed: ${data.need}\nBudget: ${data.budget || 'Not specified'}\n\n${data.message}`
             );
-            window.location.href = `mailto:hello@zeroclub.tech?subject=${subject}&body=${body}`;
+            window.location.href = `mailto:hellothisismeashutosh@gmail.com?subject=${subject}&body=${body}`;
             status.textContent = 'Opening your email client to send this inquiry…';
             status.classList.add('is-success');
           }
         } catch (err) {
-          status.textContent = 'Something went wrong sending that. Please email hello@zeroclub.tech directly.';
+          status.textContent = 'Something went wrong sending that. Please email hellothisismeashutosh@gmail.com directly.';
           status.classList.add('is-error');
         } finally {
           btn.disabled = false;
