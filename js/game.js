@@ -1156,8 +1156,11 @@ const ZCGame = (() => {
         }, CFG.INSTR_DURATION);
       }
 
-      // Mobile controls
-      if (mobileCtrl) mobileCtrl.style.display = '';
+      // Mobile controls — show only on touch devices
+      if (mobileCtrl) {
+        const isTouchDevice = navigator.maxTouchPoints > 0 || window.matchMedia('(hover: none)').matches;
+        mobileCtrl.style.display = isTouchDevice ? 'flex' : 'none';
+      }
 
       // Animate canvas in
       if (!reducedMotion && typeof gsap !== 'undefined') {

@@ -1215,9 +1215,6 @@ p { color: var(--text-secondary); }
 }
 .game-canvas-wrap.is-active { display: block; }
 #gameCanvas { display: block; width: 100%; height: 100%; }
-@media (max-width: 768px) {
-  .game-canvas-wrap { height: 420px; }
-}
 
 /* ── Game HUD ───────────────────────────────────────────── */
 .game-ui {
@@ -1290,27 +1287,87 @@ p { color: var(--text-secondary); }
 .game-complete-sub { color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 0.5rem; }
 .game-complete-actions { display: flex; gap: 0.8rem; flex-wrap: wrap; justify-content: center; }
 
-/* ── Mobile virtual controls ────────────────────────────── */
-.game-mobile-controls {
-  position: absolute; bottom: 0.8rem; left: 0; right: 0;
-  display: none; justify-content: center; gap: 0.6rem;
-  z-index: 10; padding: 0 1rem;
-}
-@media (max-width: 768px) { .game-mobile-controls { display: flex; bottom: 1.2rem; } }
-.game-vbtn {
-  width: 56px; height: 56px; border-radius: 50%;
-  font-size: 1.2rem; color: var(--text-primary);
-  background: rgba(30,34,43,0.92); border: 1px solid var(--border-strong);
-  display: flex; align-items: center; justify-content: center;
-  -webkit-tap-highlight-color: transparent;
-  user-select: none; -webkit-user-select: none;
+/* ── Mobile gamepad panel ────────────────────────────── */
+.game-pad {
+  /* hidden by default; JS shows it only on mobile when game starts */
+  display: none;
+  background: #0B0D10;
+  border-top: 1px solid rgba(255,255,255,0.07);
+  padding: 1.2rem 1rem 1.4rem;
+  /* prevent any text-selection bleed from touch hold */
+  user-select: none;
+  -webkit-user-select: none;
   -webkit-touch-callout: none;
-  touch-action: manipulation;
-  cursor: default;
-  transition: background var(--dur-fast), border-color var(--dur-fast);
 }
-.game-vbtn:active, .game-vbtn.is-pressed { background: var(--accent-soft); border-color: var(--accent); }
-.game-vbtn-jump { width: 68px; height: 68px; font-size: 1.3rem; background: rgba(255,75,34,0.18); border-color: var(--accent); }
+@media (max-width: 768px) {
+  /* only shown on mobile, JS sets display:flex */
+  .game-pad[style*="display:flex"] { display: flex !important; }
+}
+.game-pad-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 340px;
+  margin: 0 auto;
+  gap: 0.5rem;
+}
+.game-pad-side {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+.game-pad-centre {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+}
+.game-vbtn {
+  /* reset */
+  -webkit-appearance: none;
+  appearance: none;
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+  /* size */
+  width: 64px; height: 64px;
+  border-radius: 50%;
+  /* look */
+  background: rgba(255,255,255,0.05);
+  border: 1.5px solid rgba(255,255,255,0.12);
+  color: var(--text-secondary);
+  display: flex; align-items: center; justify-content: center;
+  /* kill text selection completely */
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  cursor: pointer;
+  /* motion */
+  transition: background 100ms ease, border-color 100ms ease, transform 80ms ease, color 100ms ease;
+}
+.game-vbtn:active,
+.game-vbtn.is-pressed {
+  background: rgba(255,75,34,0.18);
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: scale(0.92);
+}
+.game-vbtn-jump {
+  width: 76px; height: 76px;
+  background: rgba(255,75,34,0.12);
+  border-color: rgba(255,75,34,0.45);
+  color: var(--accent);
+}
+.game-vbtn-jump:active,
+.game-vbtn-jump.is-pressed {
+  background: rgba(255,75,34,0.32);
+  border-color: var(--accent);
+  transform: scale(0.9);
+}
 
 /* legacy brickCanvas ref — safe noop */
 #brickCanvas, #brickGameOverlay { display: none !important; }

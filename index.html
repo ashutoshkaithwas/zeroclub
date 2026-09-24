@@ -538,7 +538,7 @@
           <span class="game-instr-key">←→ / WASD</span><span>move</span>
           <span class="game-instr-key">SPACE / ↑</span><span>jump</span>
           <span class="game-instr-sep">·</span>
-          <span class="game-instr-mobile">Tap left/right — swipe up to jump</span>
+          <span class="game-instr-mobile">Use the gamepad below</span>
         </div>
 
         <!-- Completion screen -->
@@ -551,12 +551,41 @@
             <button class="btn btn-ghost" id="gameCompleteBack">↺ Play again</button>
           </div>
         </div>
+      </div>
 
-        <!-- Mobile virtual controls -->
-        <div class="game-mobile-controls" id="gameMobileControls" aria-hidden="true">
-          <button class="game-vbtn" id="vBtnLeft" aria-label="Move left">←</button>
-          <button class="game-vbtn game-vbtn-jump" id="vBtnJump" aria-label="Jump">↑</button>
-          <button class="game-vbtn" id="vBtnRight" aria-label="Move right">→</button>
+      <!-- Mobile gamepad — sits BELOW the canvas, never overlaps it -->
+      <div class="game-pad" id="gameMobileControls" aria-label="Game controls" style="display:none">
+        <div class="game-pad-inner">
+          <div class="game-pad-side">
+            <button class="game-vbtn" id="vBtnLeft"
+              aria-label="Move left"
+              onselectstart="return false"
+              ondragstart="return false">
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+                <path d="M14 5L8 11L14 17" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+          <div class="game-pad-centre">
+            <button class="game-vbtn game-vbtn-jump" id="vBtnJump"
+              aria-label="Jump"
+              onselectstart="return false"
+              ondragstart="return false">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 19V5M5 12L12 5L19 12" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+          <div class="game-pad-side">
+            <button class="game-vbtn" id="vBtnRight"
+              aria-label="Move right"
+              onselectstart="return false"
+              ondragstart="return false">
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+                <path d="M8 5L14 11L8 17" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
     </div>

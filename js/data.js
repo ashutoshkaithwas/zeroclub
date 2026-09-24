@@ -107,14 +107,10 @@ const ZC_DATA = {
 
   faq: [
     { q: "What kind of websites do you build?", a: "Business websites, portfolios, landing pages, custom web applications and AI-powered digital products — whatever the idea actually needs." },
-    { q: "Can you build a website from an idea?", a: "Yes. You don't need a spec or a finished design — a rough idea is a fine starting point. We shape it together." },
-    { q: "Do you design the website too?", a: "Yes. Structure and visual direction happen before development, so the build has something solid to follow." },
-    { q: "Can you redesign my existing website?", a: "Yes — visual redesign, mobile optimization, performance and UX improvements, or a full rebuild." },
-    { q: "Do you build responsive websites?", a: "Every project is built for desktop, tablet and mobile from the start, not adapted afterward." },
-    { q: "Can you connect databases or APIs?", a: "Yes, for projects that need backend functionality — authentication, storage, third-party integrations." },
-    { q: "Can you deploy the website?", a: "Yes — domain setup, hosting, SSL and production configuration are part of the process." },
-    { q: "How long does a project take?", a: "It depends on scope and functionality. A landing page and a full web application don't take the same time — we'll talk timeline once the scope is clear." },
-    { q: "How much does a website cost?", a: "Every project is different. Tell me what you want to build and I'll put together a quote based on the actual scope." }
+    { q: "Can you build from just an idea?", a: "Yes. You don't need a spec or a finished design — a rough idea is a fine starting point. We shape it together." },
+    { q: "Do you design and develop?", a: "Yes. Structure and visual direction happen before development, so the build has something solid to follow." },
+    { q: "How long does a project take?", a: "Depends on scope. A landing page and a full web application don't take the same time — we'll align on timeline once the scope is clear." },
+    { q: "How much does it cost?", a: "Every project is different. Tell me what you want to build and I'll put together a quote based on the actual scope." }
   ],
 
   process: [
