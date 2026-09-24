@@ -2,7 +2,7 @@
 # For Vercel, move these into a `headers` array in vercel.json instead.
 # See README.md "Security" section for why each of these exists.
 
-/*
+//*
   X-Frame-Options: DENY
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
