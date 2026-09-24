@@ -102,20 +102,7 @@ const ZC_DATA = {
       result: "A technical/academic system demonstrating an enhancement-then-classification pipeline for retinal imagery. It is not a diagnostic tool and does not replace a medical professional.",
       note: "Academic / technical project — not a certified medical device or diagnostic service."
     },
-    {
-      id: "college-notes-hub",
-      n: "04",
-      name: "College Notes Hub",
-      category: "Web Application / Education",
-      summary: "A web platform that makes it easier for teachers to upload academic resources and for students to find course notes in one place.",
-      tech: ["JavaScript", "Node.js", "Express", "Responsive Design"],
-      links: { github: "#", demo: null },
-      problem: "Course material tends to scatter across chats, drives and inboxes, so students lose time just locating the right file.",
-      approach: "One shared space, organized by course, with a clear separation between who uploads (teachers) and who browses (students).",
-      build: "A responsive web app with teacher-side upload flows, course-based organization, and a student-facing browse/search interface — built to work as well on a phone between classes as on a laptop.",
-      features: ["Teacher uploads", "Student access", "Course organization", "Notes management", "Search & navigation", "Responsive interface (desktop + mobile)"],
-      result: "A working shared repository that turns 'does anyone have the notes' into a two-minute search."
-    }
+
   ],
 
   faq: [
